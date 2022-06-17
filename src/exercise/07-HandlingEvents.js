@@ -20,6 +20,7 @@ class FancyInput extends Component {
          * ✏️ 
          * Need to bind the handleChange function to appropriate `this`
          */
+        this.handleChange = this.handleChange.bind(this);
     }
 
     /**
@@ -30,30 +31,16 @@ class FancyInput extends Component {
      * 🧭  Set the value to the state `inputValue` by calling `setState`
      */
     handleChange(e) {
-
+        this.setState({
+            inputValue: e.target.value
+        });
     }
 
     render() {
 
         return (
             <React.Fragment>
-                {
-                /**
-                 * ✏️ 
-                 * Need to pass the event handler to the input element.
-                 * In this case we need to pass handleChange function to the
-                 * onChange event
-                 */
-                }
-                <input></input>
-                {
-                /**
-                 * 💡
-                 * This div will mirror the user input. For this to work though
-                 * you need to add the handleChange event on the input above
-                 * and update the state when the change happens on the input
-                 */
-                }
+                <input>onChange={this.handleChange} value={this.state.inputValue}</input>
                 <div>You typed: {this.state.inputValue}</div>
             </React.Fragment>
 
