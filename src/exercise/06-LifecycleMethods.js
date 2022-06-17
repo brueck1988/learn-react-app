@@ -13,7 +13,7 @@ import DataAPI from '../api/DataApi';
  * The goal is to help you understand some use cases where we might want to use
  * some of the React lifecycle methods
  */
-class CompanyProfile extends Component {
+ class CompanyProfile extends Component {
     constructor(props) {
         super(props);
         /**
@@ -42,8 +42,14 @@ class CompanyProfile extends Component {
      *             .then(data => doSth(data))
      *             .catch(error => console.log(error))
      * */
-    componentDidMount() {
-
+     componentDidMount() {
+        DataAPI.getCompanyProfile(this.props.stockTicker) 
+            .then(data => {
+            this.setState({
+                companyProfileInfo: data
+        })
+        })
+        .catch(e => console.log(e));
     }
 
     render() {
