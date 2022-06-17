@@ -59,7 +59,7 @@ class Counter extends Component {
      */
     decrement(){
         this.setState((state) => {
-            return { counter: state.counter - 1}
+            { counter: state.counter - 1}
         } );
         /**
          * ✏️ 
