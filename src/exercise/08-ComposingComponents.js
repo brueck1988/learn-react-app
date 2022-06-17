@@ -13,30 +13,15 @@ import React, { Component } from 'react';
 class Card extends Component {
     render() {
         return (
-            <div>
-                <div style={{ backgroundColor: '#99b7c3'}}>
-                    {
-                        /**
-                         * ✏️ 
-                         * Use renderHeader props here to render header content
-                         */
-                    }
+            <div className={'card'}>
+                <div style={{ backgroundColor: '#99b7c3'}} className={'cardHeader'}>
+                    {this.props.renderHeader()}
                 </div>
-                <div style={{ backgroundColor: '#9676b3'}}>
-                    {
-                        /**
-                         * ✏️ 
-                         * Use renderBody props here to render body content
-                         */
-                    }
+                <div style={{ backgroundColor: '#9676b3'}} >
+                    {this.props.renderBody()}
                 </div>
-                <div style={{ backgroundColor: '#d4ce83'}}>
-                    {
-                        /**
-                         * ✏️ 
-                         * Use renderFooter props here to render footer content
-                         */
-                    }
+                <div style={{ backgroundColor: '#d4ce83'}} >
+                    {this.props.renderFooter()}
                 </div>
             </div>
         )
@@ -56,7 +41,11 @@ class CardUser extends Component {
          *          renderHeader={() => <div>Header</div>}
          */
         return (
-            <Card />
+            <Card 
+                renderHeader={() => <div>Header</div> }
+                renderBody={() => <div>Body</div> }
+                renderFooter={() => <div>Footer</div> }
+            />
         )
     }
 }
